@@ -12,9 +12,9 @@ let client = net.createConnection({ port: 3001 }, () => {
 
         // kicked function
         const dataArray = data.split(' ')
-        if (dataArray[2] === 'kicked') {
+        if (dataArray[2] === 'kicked' && dataArray[0] === 'you') {
             client.end()
-            process.exit();
+            // process.exit();
         }
     })
 

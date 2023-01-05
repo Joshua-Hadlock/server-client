@@ -146,6 +146,16 @@ let server = net.createServer((client) => {
                         if (packageSpecialStuff[1].replace('\n', '') === theClient.name) {
                             theClient.write('you were kicked by ' + client.name)
                             kickedPersonNotFound = false;
+
+
+                            var counter = 0;
+                            clients.forEach(theClient => {
+                            if (theClient.name === client.name) {
+                                clients.splice(counter, 1)
+                            }
+                            counter += 1;
+                            })
+
                             clients.forEach((theClient2) => {
                                 theClient2.write(theClient.name + ' was kicked by ' + client.name)
                             })
