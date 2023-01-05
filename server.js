@@ -150,14 +150,14 @@ let server = net.createServer((client) => {
 
                             var counter = 0;
                             clients.forEach(theClient => {
-                            if (theClient.name === client.name) {
+                            if (theClient.name === packageSpecialStuff[1].replace('\n', '')) {
                                 clients.splice(counter, 1)
                             }
                             counter += 1;
                             })
 
                             clients.forEach((theClient2) => {
-                                theClient2.write(theClient.name + ' was kicked by ' + client.name)
+                                theClient2.write(theClient.name + ' was kicked by ' + client.name +'\n')
                             })
                         }
                     })
